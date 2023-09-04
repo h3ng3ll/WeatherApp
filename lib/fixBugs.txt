@@ -1,0 +1,8 @@
+
+
+
+3. Weekly forecast small contents .
+4. When click on day of a week or day of an hour show
+information like about now event .
+5. Add settings to change location settings .
+

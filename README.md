@@ -9,14 +9,11 @@
 
 ## App Screens
 
-<img src="https://i.ibb.co/qntzcvZ/photo-2023-09-04-09-48-53-7.jpg"  width="270" height="585" /> <img src="https://i.ibb.co/6yGjTr1/photo-2023-09-04-09-48-53-5.jpg
-"  width="270" height="585" />
+<img src="https://i.ibb.co/qntzcvZ/photo-2023-09-04-09-48-53-7.jpg"  width="270" height="585" /> <img src="https://i.ibb.co/6yGjTr1/photo-2023-09-04-09-48-53-5.jpg"  width="270" height="585" />
 
-<img src="https://i.ibb.co/XkbBvCK/photo-2023-09-04-09-48-53-3.jpg
-"  width="270" height="585" />  <img src="https://i.ibb.co/wY9Nw0m/photo-2023-09-04-09-48-53-4.jpg"  width="270" height="585" />
+<img src="https://i.ibb.co/XkbBvCK/photo-2023-09-04-09-48-53-3.jpg"  width="270" height="585" />  <img src="https://i.ibb.co/wY9Nw0m/photo-2023-09-04-09-48-53-4.jpg"  width="270" height="585" />
 
-<img src="https://i.ibb.co/hyBs6WV/photo-2023-09-04-09-48-53.jpg"  width="270" height="585" />  <img src="https://i.ibb.co/TwptnFX/photo-2023-09-04-09-48-53-2.jpg
-"  width="270" height="585" />
+<img src="https://i.ibb.co/hyBs6WV/photo-2023-09-04-09-48-53.jpg"  width="270" height="585" />  <img src="https://i.ibb.co/TwptnFX/photo-2023-09-04-09-48-53-2.jpg"  width="270" height="585" />
 
  <img src="https://i.ibb.co/0y1qMgc/photo-2023-09-04-09-48-53-6.jpg"  width="270" height="585" /> <img src="https://i.ibb.co/hWJ8jHs/photo-2023-09-04-09-51-29.jpg"  width="270" height="585" />
 

@@ -65,7 +65,7 @@ class _MainWeatherScreenState extends State<MainWeatherScreen> {
           const Positioned.fill(child: BuildIcon(boxFit: BoxFit.cover, iconPath: "icons/bg",)),
           ListView(
             physics: const AlwaysScrollableScrollPhysics(),
-            children: const [ Spacer() ],
+            children:  [ SizedBox(height: size.height, width: size.width,) ],
           ),
           buildWeatherStatus(forecast),
 

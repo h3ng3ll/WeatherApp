@@ -2,15 +2,18 @@
 
 class WeatherDetails {
   final String time;
-  final Map<String , dynamic> condition;
+  final String conditionIcon;
+  final String conditionText;
+
   final bool willItRain;
   final bool willItSnow ;
-  final double temp;
+  final String temp;
   final bool timeConfirm;
 
   WeatherDetails({
     required this.time,
-    required this.condition,
+    required this.conditionIcon,
+    required this.conditionText,
     required this.willItRain,
     required this.willItSnow,
     required this.temp,

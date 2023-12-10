@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/l10n/L10n.dart';
+import 'package:weather_app/src/data/services/locale/hive/gelocationHive/geolocation_hive.dart';
 import 'package:weather_app/src/presentation/UI/MainWeatherScreen/MainWeatherScreen.dart';
 import 'package:weather_app/src/presentation/core/DefaultTheme.dart';
 import 'package:weather_app/src/presentation/provider/SearchWeatherProvider.dart';
@@ -13,8 +15,16 @@ import 'package:weather_app/src/presentation/services/ColorService.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+late Box box ;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(GeolocationHiveAdapter());
+
+  box = await Hive.openBox("location");
+
 
   ByteData data = await PlatformAssetBundle().load("assets/ca/imgCertificate.pem");
   SecurityContext.defaultContext.setTrustedCertificatesBytes(data.buffer.asInt8List());
@@ -48,7 +58,7 @@ class MyApp extends StatelessWidget {
       builder: (context , child) {
         return MediaQuery(
             data: MediaQuery.of(context).copyWith(
-                textScaler: const TextScaler.linear(0.85),
+                textScaleFactor: 0.85,
                 // navigationMode: NavigationMode.
             ),
             child: child!
@@ -60,7 +70,7 @@ class MyApp extends StatelessWidget {
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (BuildContext context) => UpPanelProvider()),
-          ChangeNotifierProvider(create: (BuildContext context) => SearchWeatherProvider()),
+          ChangeNotifierProvider(create: (BuildContext context) => SearchWeatherProvider(context)),
           Provider(create: (context) => WeatherProvider())
         ],
         child: const MainWeatherScreen(),

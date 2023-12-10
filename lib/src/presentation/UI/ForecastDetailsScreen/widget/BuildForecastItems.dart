@@ -73,7 +73,7 @@ class BuildForecastItems extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 0.95,
+            childAspectRatio: 0.85,
             mainAxisSpacing: 20,
             crossAxisSpacing: 20,
           ),

@@ -51,26 +51,35 @@ class _BuildWeatherCellsState extends State<BuildWeatherCells> {
   @override
   void initState() {
     super.initState();
+
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     final weather = Provider.of<WeatherProvider>(context , listen:  false).weather;
 
     if(widget.horlyBuild) {
       final hours = weather.forecastDay!.first.hours;
-      details = hours.map((e) => e.toWeatherDetails()).toList();
+      details = hours.map((e) => e.toWeatherDetails(context)).toList();
 
       final nowHour = DateTime.now().hour;
       // final time = hours.map((e) => e).firstWhere((element) => nowHour < element.hourTime.hour && nowHour == (element.hourTime.hour-1));
 
       final index = nowHour == 24 ? 1 : nowHour; //hours.indexOf(time);
 
-      details.insert(index  , weather.now.toWeatherDetails());
+      details.insert(index  , weather.now.toWeatherDetails(context));
 
-     controller = ScrollController(initialScrollOffset: index * widget.aCellWidth*1.1);
+
+
+      controller = ScrollController(initialScrollOffset: index * widget.aCellWidth*1.1);
     }
     else {
-      details =  weather.forecastDay!.map((e) => e.toWeatherDetails()).toList();
+      details =  weather.forecastDay!.map((e) => e.toWeatherDetails(context)).toList();
       controller = ScrollController();
     }
   }
+
   @override
   Widget build(BuildContext context) {
     

@@ -46,3 +46,5 @@ app.*.map.json
 
 # Secret api key
 lib/src/domain/privateKey.dart
+
+android/key.properites

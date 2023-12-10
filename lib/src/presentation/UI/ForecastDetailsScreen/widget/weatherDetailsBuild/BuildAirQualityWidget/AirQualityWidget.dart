@@ -39,10 +39,10 @@ class _AirQualityWidgetState extends State<AirQualityWidget> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(AppLocalizations.of(context)!.air_quality , style:  titleSmall,),
-          Text("${provider.weather.now.airQuality.getHealthRisk(context)} ${AppLocalizations.of(context)!.health_risk}" , style:  titleLarge,),
+          Text("${provider.weather.now.airQuality!.getHealthRisk(context)} ${AppLocalizations.of(context)!.health_risk}" , style:  titleLarge,),
           SizedBox(height: size.height*0.025,),
 
-          BuildIndicatorLine(value: provider.weather.now.airQuality.us_epa_index!.toDouble(), maxValue: 6,),
+          BuildIndicatorLine(value: provider.weather.now.airQuality!.us_epa_index!.toDouble(), maxValue: 6,),
           SizedBox(height: size.height*0.025,),
 
           const Divider(height: 0.5 , color: ColorService.purple,),

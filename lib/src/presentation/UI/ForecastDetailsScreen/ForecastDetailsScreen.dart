@@ -37,9 +37,9 @@ class ForecastDetailsScreen extends StatelessWidget {
               SizedBox(
                 height: size.height*0.05,
               ),
-              Text(provider.weather.location.region , style: titleLarge,),
+              Text(provider.weather.location.name , style: titleLarge,),
               Text("${provider.weather.now.temp.toStringAsFixed(0)}° | "
-                  "${provider.weather.now.condition['text']}" , style: title3,),
+                  "${provider.weather.now.conditionText}" , style: title3,),
             ],
           ),
         ),

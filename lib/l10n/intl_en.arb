@@ -1,8 +1,9 @@
 {
+  "lang" : "en",
   "hourly_forecast" : "Hourly Forecast",
   "weekly_forecast" : "Weekly Forecast",
   "air_quality" : "AIR QUALITY",
-  "health_risk" : "Heath Risk",
+  "health_risk" : "Health Risk",
   "good" : "Good",
   "good_desc" : "Air quality is considered satisfactory, and air pollution poses little or no risk.",
   "moderate" : "Moderate",
@@ -42,6 +43,18 @@
   "search_for_a_city_or_airport" : "Search for a city of airport",
   "current_visibility_is" : "Current visibility is ",
   "licences" : "Licences",
-  "close" : "Close"
-
+  "close" : "Close",
+  "ok" : "OK",
+  "glob_location_changing_desc" : "Your global current location setting will be replaced by this location .",
+  "are_you_sure_to_do_this" : "Are you sure to do this",
+  "changes_applied_successfully" : "Changes applied successfully",
+  "this_operation_turn_this_app_on_by_default_state" : "This operation turn this app on by default state",
+  "now" : "Now",
+  "failed_to_fetch_weather" : "Failed to fetch forecast",
+  "high_abr" : "H",
+  "low_abr" : "L",
+  "internet_errors" : "Please , check your internet connection  and|or  geolocation permission ",
+  "update" : "Update",
+  "sms_went_wrong" : "Something went wrong",
+  "dates_has_not_been_loaded" : "dates hasn't been loaded"
 }

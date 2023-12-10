@@ -6,17 +6,19 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:weather_app/src/domain/model/Forecast.dart';
-import 'package:weather_app/src/domain/model/Weather/ForecastCollectionEnum.dart';
+import 'package:weather_app/src/domain/model/WeatherApi.com/ForecastCollectionType.dart';
 import 'package:weather_app/src/domain/model/WeatherApi.com/ForecastDay.dart';
 import 'package:weather_app/src/domain/privateKey.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WeatherRepository {
 
 
   static String _fetchForecastType ({
-    required ForecastCollectionEnum state,
+    required ForecastQueryType state,
+    required BuildContext context,
     double? lat,
     double? lon,
     String? query,
@@ -24,40 +26,47 @@ class WeatherRepository {
     assert(lat!= null && lon != null || query != null);
 
     const host = "http://api.weatherapi.com/v1";
+    final String lang = AppLocalizations.of(context)!.lang;
+    final String  params = "&days=7&aqi=yes&lang=$lang";
 
     switch(state){
-      case ForecastCollectionEnum.byGeolocation:
-        return "$host/forecast.json?key=$privateKey&q=$lat,$lon&days=7&aqi=yes";
-      case ForecastCollectionEnum.byQuery:
-        return "$host/forecast.json?key=$privateKey&q=$query&days=7&aqi=yes";
+      case ForecastQueryType.byGeolocation:
+        return "$host/forecast.json?key=$privateKey&q=$lat,$lon$params";
+      case ForecastQueryType.byInput:
+        return "$host/forecast.json?key=$privateKey&q=$query$params";
     }
 
   }
 
 
-  static Future<Weather> _fetchWeather (String request) async {
+  static Future<Forecast> _fetchWeather (String request) async {
     try {
       var uri = Uri.parse(request);
       final rowJson = await http.get(uri);
-      final json = jsonDecode(rowJson.body);
-      final forecast = Weather.fromJson(json );
+      /// decode http response as list of bytes to utf-8
+
+      final utf_8 = utf8.decode(rowJson.bodyBytes);
+      final json = jsonDecode(utf_8);
+      final forecast = Forecast.fromJson(json );
       return forecast;
     } on Exception catch (e) {
-      throw Exception(e);
+      throw Exception("Failed to fetch weather: $e");
     }
   }
 
-  static Future<Weather>  fetchForecastByQuery(String  query) async {
+  static Future<Forecast>  fetchForecastByQuery(String  query , BuildContext context) async {
+
     final request = _fetchForecastType(
-        state: ForecastCollectionEnum.byQuery ,
+        state: ForecastQueryType.byInput ,
+        context: context,
         query: query
     );
 
     final weather = await _fetchWeather(request);
     return weather;
   }
-  
-  static Future<Weather> fetchForecastByGeolocation (double lat , double lon ) async {
+
+  static Future<Forecast> fetchForecastByGeolocation (double lat , double lon , BuildContext context) async {
 
     // lat = double.parse(49.965321.toStringAsFixed(2));
     // lon = double.parse(33.609760.toStringAsFixed(2));
@@ -65,7 +74,8 @@ class WeatherRepository {
     lon = double.parse(lon.toStringAsFixed(2));
 
     final request = _fetchForecastType(
-        state: ForecastCollectionEnum.byGeolocation ,
+        state: ForecastQueryType.byGeolocation ,
+        context: context,
         lat: lat ,
         lon: lon
     );
@@ -106,7 +116,7 @@ class WeatherRepository {
   }
 
   ///  take hours ago and hours in future and return arrangement value .
-  static double  getCurrentDewPoint (Weather weather) {
+  static double  getCurrentDewPoint (Forecast weather) {
     final hour = DateTime.now().hour;
 
     final hours = List.generate(24, (index) => index);

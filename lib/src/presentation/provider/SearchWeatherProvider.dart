@@ -8,25 +8,25 @@ class SearchWeatherProvider extends ChangeNotifier {
 
 
 
-   List<Weather>? cities ;
+   List<Forecast>? cities ;
 
-  SearchWeatherProvider () {
+  SearchWeatherProvider (BuildContext context) {
     /// default weather when request is empty
-    initCities().then((value) => cities = value);
+    initCities( context).then((value) => cities = value);
 
   }
 
-  Future<List<Weather>> initCities () async  {
-    final List cityQuery = ["Kiev", "Montreal", "Toronto", "Tokyo",];
+  Future<List<Forecast>> initCities (BuildContext context) async  {
+    final List cityQuery = ["Kyiv", "Montreal", "Toronto", "Tokyo",];
     return Stream.fromIterable(cityQuery).asyncMap((query) async =>
-     await WeatherRepository.fetchForecastByQuery(query))
+     await WeatherRepository.fetchForecastByQuery(query , context))
         .toList().then((value) => cities = value);
   }
   String _request = "";
 
   String get request => _request;
+   set request (String value) {
 
-  set request (String value) {
     _request = value;
     notifyListeners();
   }

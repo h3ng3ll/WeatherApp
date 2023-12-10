@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/src/presentation/services/ColorService.dart';
 
 ThemeData defaultTheme = ThemeData(
+  useMaterial3: true,
   dialogTheme: const DialogTheme(
     backgroundColor: ColorService.purpleShade2,
     titleTextStyle:  TextStyle(

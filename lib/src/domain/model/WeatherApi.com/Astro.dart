@@ -9,7 +9,7 @@ class Astro {
   final DateTime? moonrise;
   final String moonset;
   final String? moon_phase;
-  final String? moon_illumination;
+  final int? moon_illumination;
   final bool is_moon_up;
   final bool is_sun_up;
 

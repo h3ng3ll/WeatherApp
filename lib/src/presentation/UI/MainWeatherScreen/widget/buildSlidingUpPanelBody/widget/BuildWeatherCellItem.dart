@@ -42,7 +42,7 @@ class BuildForecastCellItem extends StatelessWidget {
           right: index == length-1 ? longPadding : lowPadding
       ),
       child: Container(
-        width: size.width/6.7,
+        width: size.width/6.3,
         padding: const EdgeInsets.all(4),
         decoration:  BoxDecoration(
           border: Border.all(
@@ -69,9 +69,9 @@ class BuildForecastCellItem extends StatelessWidget {
 
             Text(details.time , style: titleLarge?.copyWith(fontSize: 18)),
 
-            BuildIcon.network(iconPath: "https:${details.condition['icon']}"),
+            BuildIcon.network(iconPath: "https:${details.conditionIcon}"),
 
-            Text("${details.temp.round()}°" , style: titleLarge?.copyWith(fontSize: 20)),
+            FittedBox(child: Text("${details.temp}°" , style: titleLarge?.copyWith(fontSize: 18))),
 
           ],
         ),

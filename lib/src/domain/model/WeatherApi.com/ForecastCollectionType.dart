@@ -1,0 +1,7 @@
+
+
+
+enum ForecastQueryType {
+  byGeolocation,
+  byInput,
+}

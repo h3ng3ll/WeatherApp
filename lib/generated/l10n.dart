@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `en`
+  String get lang {
+    return Intl.message(
+      'en',
+      name: 'lang',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hourly Forecast`
   String get hourly_forecast {
     return Intl.message(
@@ -80,10 +90,10 @@ class S {
     );
   }
 
-  /// `Heath Risk`
+  /// `Health Risk`
   String get health_risk {
     return Intl.message(
-      'Heath Risk',
+      'Health Risk',
       name: 'health_risk',
       desc: '',
       args: [],
@@ -489,6 +499,136 @@ class S {
       args: [],
     );
   }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your global current location setting will be replaced by this location .`
+  String get glob_location_changing_desc {
+    return Intl.message(
+      'Your global current location setting will be replaced by this location .',
+      name: 'glob_location_changing_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to do this`
+  String get are_you_sure_to_do_this {
+    return Intl.message(
+      'Are you sure to do this',
+      name: 'are_you_sure_to_do_this',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Changes applied successfully`
+  String get changes_applied_successfully {
+    return Intl.message(
+      'Changes applied successfully',
+      name: 'changes_applied_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This operation turn this app on by default state`
+  String get this_operation_turn_this_app_on_by_default_state {
+    return Intl.message(
+      'This operation turn this app on by default state',
+      name: 'this_operation_turn_this_app_on_by_default_state',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Now`
+  String get now {
+    return Intl.message(
+      'Now',
+      name: 'now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to fetch forecast`
+  String get failed_to_fetch_weather {
+    return Intl.message(
+      'Failed to fetch forecast',
+      name: 'failed_to_fetch_weather',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `H`
+  String get high_abr {
+    return Intl.message(
+      'H',
+      name: 'high_abr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `L`
+  String get low_abr {
+    return Intl.message(
+      'L',
+      name: 'low_abr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please , check your internet connection  and|or  geolocation permission `
+  String get internet_errors {
+    return Intl.message(
+      'Please , check your internet connection  and|or  geolocation permission ',
+      name: 'internet_errors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message(
+      'Update',
+      name: 'update',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get sms_went_wrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'sms_went_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `dates hasn't been loaded`
+  String get dates_has_not_been_loaded {
+    return Intl.message(
+      'dates hasn\'t been loaded',
+      name: 'dates_has_not_been_loaded',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -497,6 +637,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'uk'),
     ];
   }
 

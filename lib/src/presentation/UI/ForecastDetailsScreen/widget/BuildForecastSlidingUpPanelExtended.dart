@@ -1,6 +1,7 @@
 
 
 
+
 import 'package:flutter/material.dart';
 import 'package:weather_app/src/presentation/UI/ForecastDetailsScreen/widget/BuildForecast/BuildHourlyForecast.dart';
 import 'package:weather_app/src/presentation/UI/ForecastDetailsScreen/widget/BuildForecast/BuildWeeklyForecast.dart';
@@ -62,6 +63,9 @@ class _BuildForecastSlidingUpPanelExtendedState extends State<BuildForecastSlidi
             child: ListView(
               controller: scrollController,
               children: [
+
+
+
                 DefaultTabBar(
                   controller: controller,
                   onTap: (index) {

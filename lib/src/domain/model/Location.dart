@@ -7,20 +7,18 @@ class Location {
   final String name;
   final String region;
   final String country;
-  final String tz_id;
-  final int localtime_epoch;
-  final DateTime? localTime;
+  final DateTime localtime_epoch;
+  // final DateTime? localTime;
 
   Location({
-    required this.lat,
+    required this. lat,
     required this.lon,
     required this.name,
     required this.region,
     required this.country,
-    required this.tz_id,
     required this.localtime_epoch,
-    required this.localTime,
-  });
+    // required this.localTime,
+  }) ;
 
   static fromJson (Map<String , dynamic> json) => Location(
 
@@ -29,9 +27,11 @@ class Location {
       name: json['name'],
       region: json['region'],
       country: json['country'],
-      localtime_epoch: json['localtime_epoch'],
-      localTime: DateTime.tryParse(json['localtime'] ),
-      tz_id: json['tz_id'],
-
+      localtime_epoch: DateTime.fromMillisecondsSinceEpoch(json['localtime_epoch'] * 1000),
+      // localTime: DateTime.tryParse(json['localtime'] ),
   );
+
+
+
+
 }

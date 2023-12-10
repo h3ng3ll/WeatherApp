@@ -9,21 +9,20 @@ import 'package:weather_app/src/domain/model/WeatherApi.com/ForecastNow.dart';
 ///
 ///
 
-class Weather {
+class Forecast {
 
-  final List<ForecastDay>? forecastDay;
+  final List<ForecastDay> forecastDay;
   final ForecastNow now;
   final Location location;
 
-  Weather({
+  Forecast({
 
-     this.forecastDay,
+     required this.forecastDay,
      required this.location,
       required this.now,
   });
 
-   static Weather fromJson (Map<String , dynamic> json) => Weather(
-
+   static Forecast fromJson (Map<String , dynamic> json) => Forecast(
       forecastDay: List<ForecastDay>.from((json['forecast']['forecastday'] as List<dynamic>)
          .map((e) => ForecastDay.fromJson(e)).toList()),
       now: ForecastNow.fromJson(json['current']),

@@ -6,11 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/src/domain/model/Forecast.dart';
 import 'package:weather_app/src/presentation/core/BuildBackGroundWidget.dart';
 import 'package:weather_app/src/presentation/services/ColorService.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UnableLoadWeatherScreen extends StatelessWidget {
 
   final Function () update;
-  final AsyncSnapshot<Weather> snapshot;
+  final AsyncSnapshot<Forecast> snapshot;
   const UnableLoadWeatherScreen({Key? key, required this.snapshot, required this.update}) : super(key: key);
 
   @override
@@ -23,16 +24,16 @@ class UnableLoadWeatherScreen extends StatelessWidget {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Something went wrong" , style:  bodyLarge,),
+              Text(AppLocalizations.of(context)!.sms_went_wrong , style:  bodyLarge,),
               const SizedBox(height: 10,),
 
-              Text(" dates hasn't been loaded" , style:  bodySmall,),
+              Text(AppLocalizations.of(context)!.dates_has_not_been_loaded , style:  bodySmall,),
               const SizedBox(height: 15,),
 
               // Text(snapshot.error.toString() , style:  bodySmall,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                child: Text("Please , check your internet connection either  geolocation permission and|or internet one" ,
+                child: Text(AppLocalizations.of(context)!.internet_errors ,
                   style: bodySmall?.copyWith(color: ColorService.lightPink , fontSize: 18),
                 ),
               ),
@@ -48,7 +49,7 @@ class UnableLoadWeatherScreen extends StatelessWidget {
                       ColorService.gradientPink22,
                     ])
                   ),
-                  child: Text("Update" , style: bodySmall,)
+                  child: Text(AppLocalizations.of(context)!.update , style: bodySmall,)
                 ),
               )
             ]
@@ -56,29 +57,5 @@ class UnableLoadWeatherScreen extends StatelessWidget {
     );
   }
 
-  // List<Widget> catchedErrorRespWidgets (BuildContext context) {
-  //
-  //   final bodyLarge = Theme.of(context).textTheme.bodyLarge?.copyWith(color: ColorService.lightPink);
-  //   final bodySmall = Theme.of(context).textTheme.bodySmall;
-  //
-  //   if((snapshot.error is TimeoutException) &&
-  //      (snapshot.error as TimeoutException).message == "Future not completed"
-  //   ){
-  //     return [
-  //       Text("Timeout exception " , style: bodyLarge,),
-  //       Padding(
-  //         padding: const EdgeInsets.symmetric(horizontal: 40.0),
-  //         child: Text("Please , check your internet connection or permissions on geolocation permission and|or internet one" , style: bodySmall,),
-  //       )
-  //     ];
-  //   } else if(
-  //   (snapshot.error is Exception) &&
-  //   (snapshot.error as ClientException).message == "Failed host lookup: 'api.weatherapi.com'"){
-  //
-  //   }
-  //   return [
-  //     // Text(snapshot.error.toString() , style:  bodySmall,),
-  //
-  //   ];
-  // }
+
 }
